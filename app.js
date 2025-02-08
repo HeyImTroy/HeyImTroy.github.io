@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleAllButton = document.getElementById('toggleAllButton');
   const verseCards = document.querySelectorAll('.verse-card');
 
-  // 1. TOGGLE ALL VERSES
+  // Toggle all verses on/off
   if (toggleAllButton && versesContainer) {
     toggleAllButton.addEventListener('click', () => {
-      // If the container is hidden, show it; otherwise, hide it
       if (versesContainer.style.display === 'none') {
         versesContainer.style.display = 'block';
         toggleAllButton.textContent = 'Hide/Show All Verses';
@@ -17,24 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. TOGGLE INDIVIDUAL VERSE TEXT
+  // Toggle each verse individually
   verseCards.forEach((card) => {
     card.addEventListener('click', (event) => {
-      // Ensure we don't conflict with the "Toggle All" button
+      // Prevent interfering with the "Toggle All" button
       if (event.target.id === 'toggleAllButton') return;
 
-      // Toggle the .verse-text inside the clicked card
-      const verseTextElement = card.querySelector('.verse-text');
-      if (!verseTextElement) return; // Safety check
-
-      if (verseTextElement.style.display === 'none') {
-        verseTextElement.style.display = 'block';
-      } else {
-        verseTextElement.style.display = 'none';
+      // Toggle the verse text within the clicked card
+      const verseText = card.querySelector('.verse-text');
+      if (verseText) {
+        verseText.style.display = (verseText.style.display === 'none') ? 'block' : 'none';
       }
     });
   });
 });
+
 
 
 
