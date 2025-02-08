@@ -5,38 +5,52 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function MemoryVerses() {
   const [verses, setVerses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchVerses();
   }, []);
 
   const fetchVerses = async () => {
+    setLoading(true);
+    setError(null);
     try {
       const querySnapshot = await getDocs(collection(db, "verses"));
       setVerses(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
     } catch (error) {
       console.error("Error fetching verses:", error);
+      setError("Failed to load memory verses.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Memory Verses</h1>
-      <div className="grid gap-4">
-        {verses.length > 0 ? (
-          verses.map((v) => (
-            <Card key={v.id} className="p-4 shadow-md">
-              <CardContent>
-                <p className="font-semibold">{v.reference}</p>
-                <p className="text-gray-700">{v.verse}</p>
-              </CardContent>
-            </Card>
-          ))
-        ) : (
-          <p className="text-center text-gray-500">No verses added yet.</p>
-        )}
-      </div>
+      {loading ? (
+        <p className="text-center text-gray-500">Loading...</p>
+      ) : error ? (
+        <p className="text-center text-red-500">{error}</p>
+      ) : (
+        <div className="grid gap-4">
+          {verses.length > 0 ? (
+            verses.map((v) => (
+              <Card key={v.id} className="p-4 shadow-md">
+                <CardContent>
+                  <p className="font-semibold">{v.reference}</p>
+                  <p className="text-gray-700">{v.verse}</p>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            <p className="text-center text-gray-500">No verses added yet.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 }
+
 
