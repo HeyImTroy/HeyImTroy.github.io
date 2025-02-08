@@ -1,56 +1,128 @@
-import React, { useState, useEffect } from "react";
-import { db } from "./firebase";
-import { collection, getDocs } from "firebase/firestore";
-import { Card, CardContent } from "@/components/ui/card";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Memory Verses (NIV)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Class Memory Verses (NIV)</h1>
+  </header>
 
-export default function MemoryVerses() {
-  const [verses, setVerses] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  <main id="verses-container">
+    <!-- Verse 1 -->
+    <article class="verse-card">
+      <h2>Proverbs 24:12 (NIV)</h2>
+      <p>
+        “If you say, ‘But we knew nothing about this,’ does not he who weighs the heart perceive it? 
+        Does not he who guards your life know it? Will he not repay everyone according to what they have done?”
+      </p>
+    </article>
 
-  useEffect(() => {
-    fetchVerses();
-  }, []);
+    <!-- Verse 2 -->
+    <article class="verse-card">
+      <h2>Revelation 2:26-27 (NIV)</h2>
+      <p>
+        “To the one who is victorious and does my will to the end, I will give authority over the nations— 
+        that one ‘will rule them with an iron scepter and will dash them to pieces like pottery’—just as I have received authority from my Father.”
+      </p>
+    </article>
 
-  const fetchVerses = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const querySnapshot = await getDocs(collection(db, "verses"));
-      setVerses(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-    } catch (error) {
-      console.error("Error fetching verses:", error);
-      setError("Failed to load memory verses.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    <!-- Verse 3 -->
+    <article class="verse-card">
+      <h2>James 5:19-20 (NIV)</h2>
+      <p>
+        “My brothers and sisters, if one of you should wander from the truth and someone should bring that person back, 
+        remember this: Whoever turns a sinner from the error of their way will save them from death and cover over a multitude of sins.”
+      </p>
+    </article>
 
-  return (
-    <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Memory Verses</h1>
-      {loading ? (
-        <p className="text-center text-gray-500">Loading...</p>
-      ) : error ? (
-        <p className="text-center text-red-500">{error}</p>
-      ) : (
-        <div className="grid gap-4">
-          {verses.length > 0 ? (
-            verses.map((v) => (
-              <Card key={v.id} className="p-4 shadow-md">
-                <CardContent>
-                  <p className="font-semibold">{v.reference}</p>
-                  <p className="text-gray-700">{v.verse}</p>
-                </CardContent>
-              </Card>
-            ))
-          ) : (
-            <p className="text-center text-gray-500">No verses added yet.</p>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
+    <!-- Verse 4 -->
+    <article class="verse-card">
+      <h2>Jeremiah 5:14 (NIV)</h2>
+      <p>
+        “Therefore this is what the Lord God Almighty says: ‘Because the people have spoken these words, I will make my words 
+        in your mouth a fire and these people the wood it consumes.’”
+      </p>
+    </article>
+
+    <!-- Verse 5 -->
+    <article class="verse-card">
+      <h2>2 Peter 3:10-13 (NIV)</h2>
+      <p>
+        “But the day of the Lord will come like a thief. The heavens will disappear with a roar; 
+        the elements will be destroyed by fire, and the earth and everything done in it will be laid bare. 
+        Since everything will be destroyed in this way, what kind of people ought you to be? You ought to live holy and godly lives 
+        as you look forward to the day of God and speed its coming...”
+      </p>
+    </article>
+
+    <!-- Verse 6 -->
+    <article class="verse-card">
+      <h2>James 1:5-8 (NIV)</h2>
+      <p>
+        “If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, 
+        and it will be given to you. But when you ask, you must believe and not doubt...”
+      </p>
+    </article>
+
+    <!-- Verse 7 -->
+    <article class="verse-card">
+      <h2>Exodus 25:8-9 (NIV)</h2>
+      <p>
+        “Then have them make a sanctuary for me, and I will dwell among them. 
+        Make this tabernacle and all its furnishings exactly like the pattern I will show you.”
+      </p>
+    </article>
+
+    <!-- Verse 8 -->
+    <article class="verse-card">
+      <h2>Malachi 3:1 (NIV)</h2>
+      <p>
+        “I will send my messenger, who will prepare the way before me. Then suddenly the Lord you are seeking will come to his temple; 
+        the messenger of the covenant, whom you desire, will come,” says the Lord Almighty.”
+      </p>
+    </article>
+
+    <!-- Verse 9 -->
+    <article class="verse-card">
+      <h2>Revelation 19:7-8 (NIV)</h2>
+      <p>
+        “Let us rejoice and be glad and give him glory! For the wedding of the Lamb has come, 
+        and his bride has made herself ready. Fine linen, bright and clean, was given her to wear.” 
+        (Fine linen stands for the righteous acts of God’s holy people.)
+      </p>
+    </article>
+
+    <!-- Verse 10 -->
+    <article class="verse-card">
+      <h2>Acts 17:18-19 (NIV)</h2>
+      <p>
+        “A group of Epicurean and Stoic philosophers began to debate with him. Some of them asked, ‘What is this babbler trying to say?’ 
+        Others remarked, ‘He seems to be advocating foreign gods.’ They said this because Paul was preaching the good news about Jesus 
+        and the resurrection. Then they took him and brought him to a meeting of the Areopagus, where they said to him, 
+        ‘May we know what this new teaching is that you are presenting?’”
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2025 Memory Verses Collection | 
+      Scripture quotations are from the Holy Bible, New International Version (NIV). 
+      <br>
+      <small>
+        Copyright ©1973, 1978, 1984, 2011 by Biblica, Inc. 
+        Used by permission. All rights reserved worldwide.
+      </small>
+    </p>
+  </footer>
+
+  <!-- (Optional) JavaScript file -->
+  <script src="app.js"></script>
+</body>
+</html>
+
 
 
