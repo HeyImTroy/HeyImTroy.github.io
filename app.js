@@ -26,17 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /********************************************************
-   * 2. INDIVIDUAL VERSE TOGGLE
+   * 2. INDIVIDUAL VERSE TOGGLE (click on .verse-card)
    ********************************************************/
   verseCards.forEach((card) => {
     card.addEventListener('click', (event) => {
-      // Avoid conflict if user clicks the global button
+      // Prevent interfering if the global toggle button was clicked
       if (event.target.id === 'toggleAllButton') return;
 
       const verseTextElement = card.querySelector('.verse-text');
       if (!verseTextElement) return;
 
-      verseTextElement.style.display = 
+      verseTextElement.style.display =
         (verseTextElement.style.display === 'none') ? 'block' : 'none';
     });
   });
@@ -59,35 +59,36 @@ document.addEventListener('DOMContentLoaded', () => {
    ********************************************************/
   if (addVerseForm) {
     addVerseForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Stop full page refresh
+      e.preventDefault(); // Prevents page refresh
 
-      // Obtain user input
+      // Collect user input
       const reference = verseReferenceInput.value.trim();
       const text = verseTextInput.value.trim();
 
+      // Validation
       if (!reference || !text) {
-        alert('Please complete both fields: Verse Reference and Verse Text.');
+        alert('Please complete both the reference and the verse text.');
         return;
       }
 
-      // Create a new verse-card
+      // Create new card
       const newCard = document.createElement('article');
       newCard.classList.add('verse-card');
 
-      // Heading: reference
+      // Add a heading for the reference
       const heading = document.createElement('h2');
       heading.textContent = reference;
 
-      // Paragraph: text
+      // Add a paragraph for the verse text
       const paragraph = document.createElement('p');
       paragraph.classList.add('verse-text');
       paragraph.textContent = text;
 
-      // Attach heading & paragraph
+      // Append heading and paragraph to the new card
       newCard.appendChild(heading);
       newCard.appendChild(paragraph);
 
-      // Individual toggle logic for new card
+      // Include toggle logic for the newly created card
       newCard.addEventListener('click', (event) => {
         if (event.target.id === 'toggleAllButton') return;
         const verseTextElement = newCard.querySelector('.verse-text');
@@ -97,16 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Add to the container
+      // Add the new card to #verses-container
       versesContainer.appendChild(newCard);
 
-      // Reset and hide form
+      // Clear inputs and hide the form
       verseReferenceInput.value = '';
       verseTextInput.value = '';
       addVerseFormSection.style.display = 'none';
     });
   }
 });
+
 
 
 
