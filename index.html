@@ -17,16 +17,31 @@
     <h1>Class Memory Verses (NIV)</h1>
   </header>
 
-  <!-- Navigation bar with a global toggle button -->
   <nav>
     <ul>
       <li><button id="toggleAllButton">Hide/Show All Verses</button></li>
+      <li><button id="showAddVerseFormButton">Add a New Verse</button></li>
     </ul>
   </nav>
 
-  <!-- MAIN container for all verse cards -->
+  <!-- Section for adding new verses -->
+  <section id="add-verse-form-section">
+    <h2>Add a New Verse</h2>
+    <form id="add-verse-form">
+      <div class="form-field">
+        <label for="verseReference">Verse Reference (e.g., John 3:16 NIV):</label>
+        <input type="text" id="verseReference" name="verseReference" required />
+      </div>
+      <div class="form-field">
+        <label for="verseText">Verse Text:</label>
+        <textarea id="verseText" name="verseText" rows="4" required></textarea>
+      </div>
+      <button type="submit">Add Verse</button>
+    </form>
+  </section>
+
   <main id="verses-container">
-    <!-- 1: Proverbs 24:12 -->
+    <!-- Example Verse 1 -->
     <article class="verse-card">
       <h2>Proverbs 24:12 (NIV)</h2>
       <p class="verse-text">
@@ -35,95 +50,16 @@
       </p>
     </article>
 
-    <!-- 2: Revelation 2:26-27 -->
+    <!-- Example Verse 2 -->
     <article class="verse-card">
       <h2>Revelation 2:26-27 (NIV)</h2>
       <p class="verse-text">
-        “To the one who is victorious and does my will to the end, I will give authority over the nations—
+        “To the one who is victorious and does my will to the end, I will give authority over the nations— 
         that one ‘will rule them with an iron scepter and will dash them to pieces like pottery’—
         just as I have received authority from my Father.”
       </p>
     </article>
-
-    <!-- 3: James 5:19-20 -->
-    <article class="verse-card">
-      <h2>James 5:19-20 (NIV)</h2>
-      <p class="verse-text">
-        “My brothers and sisters, if one of you should wander from the truth and someone should bring that person back,
-        remember this: Whoever turns a sinner from the error of their way will save them from death 
-        and cover over a multitude of sins.”
-      </p>
-    </article>
-
-    <!-- 4: Jeremiah 5:14 -->
-    <article class="verse-card">
-      <h2>Jeremiah 5:14 (NIV)</h2>
-      <p class="verse-text">
-        “Therefore this is what the Lord God Almighty says: ‘Because the people have spoken these words, I will make 
-        my words in your mouth a fire and these people the wood it consumes.’”
-      </p>
-    </article>
-
-    <!-- 5: 2 Peter 3:10-13 -->
-    <article class="verse-card">
-      <h2>2 Peter 3:10-13 (NIV)</h2>
-      <p class="verse-text">
-        “But the day of the Lord will come like a thief. The heavens will disappear with a roar; 
-        the elements will be destroyed by fire, and the earth and everything done in it will be laid bare. 
-        Since everything will be destroyed in this way, what kind of people ought you to be? 
-        You ought to live holy and godly lives as you look forward to the day of God and speed its coming...”
-      </p>
-    </article>
-
-    <!-- 6: James 1:5-8 -->
-    <article class="verse-card">
-      <h2>James 1:5-8 (NIV)</h2>
-      <p class="verse-text">
-        “If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, 
-        and it will be given to you. But when you ask, you must believe and not doubt...”
-      </p>
-    </article>
-
-    <!-- 7: Exodus 25:8-9 -->
-    <article class="verse-card">
-      <h2>Exodus 25:8-9 (NIV)</h2>
-      <p class="verse-text">
-        “Then have them make a sanctuary for me, and I will dwell among them. 
-        Make this tabernacle and all its furnishings exactly like the pattern I will show you.”
-      </p>
-    </article>
-
-    <!-- 8: Malachi 3:1 -->
-    <article class="verse-card">
-      <h2>Malachi 3:1 (NIV)</h2>
-      <p class="verse-text">
-        “I will send my messenger, who will prepare the way before me. Then suddenly the Lord you are seeking 
-        will come to his temple; the messenger of the covenant, whom you desire, will come,” 
-        says the Lord Almighty.”
-      </p>
-    </article>
-
-    <!-- 9: Revelation 19:7-8 -->
-    <article class="verse-card">
-      <h2>Revelation 19:7-8 (NIV)</h2>
-      <p class="verse-text">
-        “Let us rejoice and be glad and give him glory! For the wedding of the Lamb has come, 
-        and his bride has made herself ready. Fine linen, bright and clean, was given her to wear.” 
-        (Fine linen stands for the righteous acts of God’s holy people.)
-      </p>
-    </article>
-
-    <!-- 10: Acts 17:18-19 -->
-    <article class="verse-card">
-      <h2>Acts 17:18-19 (NIV)</h2>
-      <p class="verse-text">
-        “A group of Epicurean and Stoic philosophers began to debate with him. Some of them asked, 
-        ‘What is this babbler trying to say?’ Others remarked, ‘He seems to be advocating foreign gods.’ 
-        They said this because Paul was preaching the good news about Jesus and the resurrection. 
-        Then they took him and brought him to a meeting of the Areopagus, where they said to him, 
-        ‘May we know what this new teaching is that you are presenting?’”
-      </p>
-    </article>
+    <!-- ... Add additional verse cards as desired ... -->
   </main>
 
   <footer>
@@ -131,8 +67,8 @@
       &copy; 2025 Memory Verses Collection<br>
       Scripture quotations are from the Holy Bible, New International Version&reg; (NIV&reg;).<br>
       <small>
-        Copyright &copy;1973, 1978,
-        1984, 2011 by Biblica, Inc.<br>
+        Copyright &copy;1973, 
+        1978, 1984, 2011 by Biblica, Inc.<br>
         Used by permission. All rights reserved worldwide.
       </small>
     </p>
@@ -142,6 +78,7 @@
   <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
