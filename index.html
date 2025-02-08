@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { db } from "./firebase";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 export default function MemoryVerses() {
-  const [verse, setVerse] = useState("");
-  const [reference, setReference] = useState("");
   const [verses, setVerses] = useState([]);
 
   useEffect(() => {
@@ -23,34 +19,9 @@ export default function MemoryVerses() {
     }
   };
 
-  const addVerse = async () => {
-    if (!verse.trim() || !reference.trim()) return;
-    try {
-      await addDoc(collection(db, "verses"), { reference, verse });
-      setVerse("");
-      setReference("");
-      fetchVerses();
-    } catch (error) {
-      console.error("Error adding verse:", error);
-    }
-  };
-
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-4">Memory Verses</h1>
-      <div className="mb-4 flex gap-2">
-        <Input
-          placeholder="Enter verse reference (e.g. John 3:16)"
-          value={reference}
-          onChange={(e) => setReference(e.target.value)}
-        />
-        <Input
-          placeholder="Enter the verse text"
-          value={verse}
-          onChange={(e) => setVerse(e.target.value)}
-        />
-        <Button onClick={addVerse}>Add Verse</Button>
-      </div>
       <div className="grid gap-4">
         {verses.length > 0 ? (
           verses.map((v) => (
@@ -68,3 +39,4 @@ export default function MemoryVerses() {
     </div>
   );
 }
+
