@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Class Memory Verses (NIV) with Emoji Background</title>
+  <title>Class Memory Verses (NIV)</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link 
@@ -17,14 +17,32 @@
     <h1>Class Memory Verses (NIV)</h1>
   </header>
 
+  <!-- Navigation bar with a global toggle button & an 'Add Verse' button -->
   <nav>
     <ul>
       <li><button id="toggleAllButton">Hide/Show All Verses</button></li>
+      <li><button id="showAddVerseFormButton">Add a New Verse</button></li>
     </ul>
   </nav>
 
+  <!-- FORM for adding new verses (initially hidden via CSS) -->
+  <section id="add-verse-form-section">
+    <h2>Add a New Verse</h2>
+    <form id="add-verse-form">
+      <div class="form-field">
+        <label for="verseReference">Verse Reference (e.g., Romans 8:28 NIV):</label>
+        <input type="text" id="verseReference" name="verseReference" required />
+      </div>
+      <div class="form-field">
+        <label for="verseText">Verse Text:</label>
+        <textarea id="verseText" name="verseText" rows="4" required></textarea>
+      </div>
+      <button type="submit">Add Verse</button>
+    </form>
+  </section>
+
   <main id="verses-container">
-    <!-- Verse Cards: Example with a few verses -->
+    <!-- Existing verses go here; for brevity, showing a couple of examples -->
     <article class="verse-card">
       <h2>Proverbs 24:12 (NIV)</h2>
       <p class="verse-text">
@@ -41,7 +59,7 @@
         just as I have received authority from my Father.”
       </p>
     </article>
-    <!-- ... Add all other verses here ... -->
+    <!-- ... Add additional verses here ... -->
   </main>
 
   <footer>
@@ -60,5 +78,6 @@
   <script src="app.js"></script>
 </body>
 </html>
+
 
 
