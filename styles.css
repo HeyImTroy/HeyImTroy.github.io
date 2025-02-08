@@ -1,0 +1,109 @@
+/* BASIC RESETS & FONT STYLING */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  background: #e8ecf1;
+  color: #333;
+}
+
+/* HEADER STYLING */
+header {
+  background: linear-gradient(135deg, #4f93d2 0%, #2c3e50 100%);
+  color: #ffffff;
+  padding: 3rem 1rem;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+/* NAVIGATION BAR */
+nav {
+  background-color: #ffffff;
+  border-bottom: 2px solid #dadfe4;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+nav button {
+  background: #4f93d2;
+  color: #ffffff;
+  border: 2px solid transparent;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+nav button:hover {
+  background: #2c3e50;
+  border: 2px solid #ffffff;
+}
+
+/* MAIN CONTENT AREA */
+main {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* VERSE CARD DESIGN */
+.verse-card {
+  background: #ffffff;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid #dadfe4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.verse-card:hover {
+  transform: translateY(-2px);
+}
+
+.verse-card h2 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.verse-card p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* FOOTER STYLING */
+footer {
+  background: #ffffff;
+  border-top: 2px solid #dadfe4;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #333333;
+}
+
+footer small {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #777;
+}
