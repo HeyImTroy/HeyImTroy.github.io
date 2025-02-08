@@ -1,0 +1,70 @@
+import React, { useState, useEffect } from "react";
+import { db } from "./firebase";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export default function MemoryVerses() {
+  const [verse, setVerse] = useState("");
+  const [reference, setReference] = useState("");
+  const [verses, setVerses] = useState([]);
+
+  useEffect(() => {
+    fetchVerses();
+  }, []);
+
+  const fetchVerses = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "verses"));
+      setVerses(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    } catch (error) {
+      console.error("Error fetching verses:", error);
+    }
+  };
+
+  const addVerse = async () => {
+    if (!verse.trim() || !reference.trim()) return;
+    try {
+      await addDoc(collection(db, "verses"), { reference, verse });
+      setVerse("");
+      setReference("");
+      fetchVerses();
+    } catch (error) {
+      console.error("Error adding verse:", error);
+    }
+  };
+
+  return (
+    <div className="max-w-2xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">Memory Verses</h1>
+      <div className="mb-4 flex gap-2">
+        <Input
+          placeholder="Enter verse reference (e.g. John 3:16)"
+          value={reference}
+          onChange={(e) => setReference(e.target.value)}
+        />
+        <Input
+          placeholder="Enter the verse text"
+          value={verse}
+          onChange={(e) => setVerse(e.target.value)}
+        />
+        <Button onClick={addVerse}>Add Verse</Button>
+      </div>
+      <div className="grid gap-4">
+        {verses.length > 0 ? (
+          verses.map((v) => (
+            <Card key={v.id} className="p-4 shadow-md">
+              <CardContent>
+                <p className="font-semibold">{v.reference}</p>
+                <p className="text-gray-700">{v.verse}</p>
+              </CardContent>
+            </Card>
+          ))
+        ) : (
+          <p className="text-center text-gray-500">No verses added yet.</p>
+        )}
+      </div>
+    </div>
+  );
+}
