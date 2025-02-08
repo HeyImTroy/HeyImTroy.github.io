@@ -7,8 +7,11 @@
 
 body {
   font-family: 'Montserrat', 'Open Sans', sans-serif;
-  /* Simple solid background */
-  background: #e8ecf1;
+  /* Inline SVG background containing an open-book emoji (📖). */
+  background-color: #e8ecf1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text x='0' y='50' font-size='50'>📖</text></svg>");
+  background-repeat: repeat;
+  background-size: 60px 60px; /* Adjust tile size to your liking. */
   color: #333;
 }
 
@@ -18,7 +21,7 @@ header {
   color: #fff;
   padding: 3rem 1rem;
   text-align: center;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
@@ -61,7 +64,7 @@ nav button:hover {
 
 /* ADD VERSE FORM SECTION */
 #add-verse-form-section {
-  display: none; /* hidden until we click the 'Add a New Verse' button */
+  display: none; /* hidden until triggered */
   background: #fff;
   margin: 2rem auto;
   max-width: 700px;
@@ -145,6 +148,7 @@ footer small {
   font-size: 0.8rem;
   color: #777;
 }
+
 
 
 
