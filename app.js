@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. TOGGLE ALL VERSES
   if (toggleAllButton && versesContainer) {
     toggleAllButton.addEventListener('click', () => {
-      // Check if verses are visible
+      // If the container is hidden, show it; otherwise, hide it
       if (versesContainer.style.display === 'none') {
         versesContainer.style.display = 'block';
         toggleAllButton.textContent = 'Hide/Show All Verses';
@@ -20,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. TOGGLE INDIVIDUAL VERSE TEXT
   verseCards.forEach((card) => {
     card.addEventListener('click', (event) => {
-      // Only toggle if the user clicks within the card but not on the "Hide/Show All" button
-      // (In practice, there's minimal risk of collision, but let's ensure it.)
+      // Ensure we don't conflict with the "Toggle All" button
       if (event.target.id === 'toggleAllButton') return;
 
+      // Toggle the .verse-text inside the clicked card
       const verseTextElement = card.querySelector('.verse-text');
+      if (!verseTextElement) return; // Safety check
+
       if (verseTextElement.style.display === 'none') {
         verseTextElement.style.display = 'block';
       } else {
@@ -33,5 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
 
 
