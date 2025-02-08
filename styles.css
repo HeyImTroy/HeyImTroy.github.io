@@ -1,4 +1,4 @@
-/* BASIC RESETS & FONT STYLING */
+/* BASIC RESET & FONT STYLING */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,10 +11,10 @@ body {
   color: #333;
 }
 
-/* HEADER STYLING */
+/* HEADER */
 header {
   background: linear-gradient(135deg, #4f93d2 0%, #2c3e50 100%);
-  color: #ffffff;
+  color: #fff;
   padding: 3rem 1rem;
   text-align: center;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -25,9 +25,9 @@ header h1 {
   font-weight: 700;
 }
 
-/* NAVIGATION BAR */
+/* NAVBAR */
 nav {
-  background-color: #ffffff;
+  background-color: #fff;
   border-bottom: 2px solid #dadfe4;
   text-align: center;
   padding: 1rem 0;
@@ -55,25 +55,26 @@ nav button {
 
 nav button:hover {
   background: #2c3e50;
-  border: 2px solid #ffffff;
+  border: 2px solid #fff;
 }
 
-/* MAIN CONTENT AREA */
+/* MAIN CONTENT */
 main {
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
-/* VERSE CARD DESIGN */
+/* VERSE CARD */
 .verse-card {
-  background: #ffffff;
+  background: #fff;
   margin-bottom: 2rem;
   padding: 2rem;
   border-radius: 10px;
   border: 2px solid #dadfe4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+  cursor: pointer; /* Indicates clickable card */
 }
 
 .verse-card:hover {
@@ -86,19 +87,19 @@ main {
   margin-bottom: 1rem;
 }
 
-.verse-card p {
+.verse-text {
   line-height: 1.6;
   font-size: 1rem;
 }
 
-/* FOOTER STYLING */
+/* FOOTER */
 footer {
-  background: #ffffff;
+  background: #fff;
   border-top: 2px solid #dadfe4;
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: #333333;
+  color: #333;
 }
 
 footer small {
@@ -107,3 +108,4 @@ footer small {
   font-size: 0.8rem;
   color: #777;
 }
+
