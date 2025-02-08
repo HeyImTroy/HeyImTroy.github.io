@@ -7,7 +7,16 @@
 
 body {
   font-family: 'Montserrat', 'Open Sans', sans-serif;
-  background: #e8ecf1;
+
+  /* 
+    Below is a data URI for an inline SVG that draws the 📖 emoji.
+    - width="60" height="60" sets the tile size for each repeat.
+    - <text x="0" y="50" font-size="50">📖</text> places the emoji.
+  */
+  background-color: #e8ecf1;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text x='0' y='50' font-size='50'>📖</text></svg>");
+  background-repeat: repeat;
+  background-size: 60px 60px; /* Adjust this for bigger or smaller repeating tiles */
   color: #333;
 }
 
@@ -25,7 +34,7 @@ header h1 {
   font-weight: 700;
 }
 
-/* NAVIGATION */
+/* NAVBAR */
 nav {
   background-color: #fff;
   border-bottom: 2px solid #dadfe4;
@@ -74,7 +83,7 @@ main {
   border: 2px solid #dadfe4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
-  cursor: pointer; /* So the user knows the card is clickable */
+  cursor: pointer;
 }
 
 .verse-card:hover {
@@ -90,7 +99,6 @@ main {
 .verse-card p {
   font-size: 1rem;
   line-height: 1.6;
-  margin: 0;
 }
 
 /* FOOTER */
@@ -109,6 +117,7 @@ footer small {
   font-size: 0.8rem;
   color: #777;
 }
+
 
 
 
