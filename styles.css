@@ -7,16 +7,7 @@
 
 body {
   font-family: 'Montserrat', 'Open Sans', sans-serif;
-
-  /* 
-    Below is a data URI for an inline SVG that draws the 📖 emoji.
-    - width="60" height="60" sets the tile size for each repeat.
-    - <text x="0" y="50" font-size="50">📖</text> places the emoji.
-  */
-  background-color: #e8ecf1;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><text x='0' y='50' font-size='50'>📖</text></svg>");
-  background-repeat: repeat;
-  background-size: 60px 60px; /* Adjust this for bigger or smaller repeating tiles */
+  background: #e8ecf1; /* Or your chosen background setup with emojis, etc. */
   color: #333;
 }
 
@@ -26,7 +17,7 @@ header {
   color: #fff;
   padding: 3rem 1rem;
   text-align: center;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
@@ -34,7 +25,7 @@ header h1 {
   font-weight: 700;
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 nav {
   background-color: #fff;
   border-bottom: 2px solid #dadfe4;
@@ -67,6 +58,42 @@ nav button:hover {
   border: 2px solid #fff;
 }
 
+/* ADD VERSE FORM SECTION */
+#add-verse-form-section {
+  display: none; /* Hidden until triggered by JavaScript */
+  background: #fff;
+  margin: 2rem auto;
+  max-width: 700px;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid #dadfe4;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#add-verse-form-section h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-field input[type="text"],
+.form-field textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 /* MAIN CONTENT */
 main {
   max-width: 1000px;
@@ -81,7 +108,7 @@ main {
   padding: 2rem;
   border-radius: 10px;
   border: 2px solid #dadfe4;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
   cursor: pointer;
 }
@@ -117,6 +144,7 @@ footer small {
   font-size: 0.8rem;
   color: #777;
 }
+
 
 
 
