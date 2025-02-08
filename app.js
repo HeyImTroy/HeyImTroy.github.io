@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleAllButton = document.getElementById('toggleAllButton');
   const verseCards = document.querySelectorAll('.verse-card');
 
-  // ADDING NEW ELEMENTS
+  // Elements for Add Verse Form
   const showAddVerseFormButton = document.getElementById('showAddVerseFormButton');
   const addVerseFormSection = document.getElementById('add-verse-form-section');
   const addVerseForm = document.getElementById('add-verse-form');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const verseTextInput = document.getElementById('verseText');
 
   /********************************************************
-   * 1. TOGGLE ALL VERSES (Hide/Show) 
+   * 1. TOGGLE ALL VERSES (Hide/Show)
    ********************************************************/
   if (toggleAllButton && versesContainer) {
     toggleAllButton.addEventListener('click', () => {
@@ -26,26 +26,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /********************************************************
-   * 2. INDIVIDUAL VERSE TOGGLE (Click on .verse-card)
+   * 2. INDIVIDUAL VERSE TOGGLE
    ********************************************************/
   verseCards.forEach((card) => {
     card.addEventListener('click', (event) => {
-      // Prevent conflict with the "Hide/Show All" button
+      // Avoid conflict if user clicks the global button
       if (event.target.id === 'toggleAllButton') return;
 
       const verseTextElement = card.querySelector('.verse-text');
       if (!verseTextElement) return;
 
-      if (verseTextElement.style.display === 'none') {
-        verseTextElement.style.display = 'block';
-      } else {
-        verseTextElement.style.display = 'none';
-      }
+      verseTextElement.style.display = 
+        (verseTextElement.style.display === 'none') ? 'block' : 'none';
     });
   });
 
   /********************************************************
-   * 3. SHOW THE ADD VERSE FORM WHEN "Add a New Verse" CLICKED
+   * 3. SHOW / HIDE 'Add Verse' FORM
    ********************************************************/
   if (showAddVerseFormButton && addVerseFormSection) {
     showAddVerseFormButton.addEventListener('click', () => {
@@ -62,58 +59,55 @@ document.addEventListener('DOMContentLoaded', () => {
    ********************************************************/
   if (addVerseForm) {
     addVerseForm.addEventListener('submit', (e) => {
-      e.preventDefault(); // Prevent page reload
+      e.preventDefault(); // Stop full page refresh
 
-      // Get user input
+      // Obtain user input
       const reference = verseReferenceInput.value.trim();
       const text = verseTextInput.value.trim();
 
-      // Basic validation
       if (!reference || !text) {
-        alert('Please fill out both the Verse Reference and Text.');
+        alert('Please complete both fields: Verse Reference and Verse Text.');
         return;
       }
 
-      // Create a new .verse-card article
+      // Create a new verse-card
       const newCard = document.createElement('article');
       newCard.classList.add('verse-card');
 
-      // Create the <h2> element for reference
+      // Heading: reference
       const heading = document.createElement('h2');
       heading.textContent = reference;
 
-      // Create the <p> element for verse text
+      // Paragraph: text
       const paragraph = document.createElement('p');
       paragraph.classList.add('verse-text');
       paragraph.textContent = text;
 
-      // Append heading & paragraph to the newCard
+      // Attach heading & paragraph
       newCard.appendChild(heading);
       newCard.appendChild(paragraph);
 
-      // Add toggling ability to the new card (like existing ones)
+      // Individual toggle logic for new card
       newCard.addEventListener('click', (event) => {
         if (event.target.id === 'toggleAllButton') return;
-
         const verseTextElement = newCard.querySelector('.verse-text');
-        if (!verseTextElement) return;
-
-        verseTextElement.style.display = 
-          (verseTextElement.style.display === 'none') ? 'block' : 'none';
+        if (verseTextElement) {
+          verseTextElement.style.display =
+            (verseTextElement.style.display === 'none') ? 'block' : 'none';
+        }
       });
 
-      // Append the new card to #verses-container
+      // Add to the container
       versesContainer.appendChild(newCard);
 
-      // Optionally, reset form fields
+      // Reset and hide form
       verseReferenceInput.value = '';
       verseTextInput.value = '';
-
-      // Hide the form after submission
       addVerseFormSection.style.display = 'none';
     });
   }
 });
+
 
 
 
