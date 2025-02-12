@@ -35,14 +35,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
-
